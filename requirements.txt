@@ -1,0 +1,13 @@
+# Core dependencies with exact versions for reproducibility
+langchain-openai>=0.3.0
+python-dotenv>=1.0.0
+pinecone>=6.0.0
+boto3>=1.34.0
+langchain-core>=0.3.0
+spacy>=3.7.0
+pandas>=2.2.0
+langchain-community>=0.3.0
+pymupdf>=1.25.0
+
+# External model
+en_core_web_sm @ https://huggingface.co/spacy/en_core_web_sm/resolve/main/en_core_web_sm-any-py3-none-any.whl
