@@ -1,8 +1,5 @@
 import spacy
-
-# LangChain imports
 from langchain.schema import Document
-
 
 nlp = spacy.load("en_core_web_sm")
 
