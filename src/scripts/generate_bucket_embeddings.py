@@ -3,9 +3,9 @@ import boto3
 from dotenv import load_dotenv
 import argparse
 
-from utils import chunk_documents
-from embedding_manager import generate_and_upsert_embeddings
-from file_processor import download_and_process_file
+from src.utils import chunk_documents
+from src.embedding_manager import generate_and_upsert_embeddings
+from src.file_processor import download_and_process_file
 
 load_dotenv()
 
@@ -14,10 +14,10 @@ s3_client = boto3.client(
 )
 
 
-async def download_file_from_s3(bucket_name, object_key, local_path):
+async def download_file_from_s3(bucket_name, object_key):
     """Download a file from S3 to a local path."""
     try:
-        s3_client.download_file(bucket_name, object_key, local_path)
+        s3_client.get_object(Bucket=bucket_name, Key=object_key)
         return True
     except Exception as e:
         print(f"Error downloading {object_key}: {e}")
@@ -71,7 +71,7 @@ async def process_s3_bucket(bucket_name, prefix=""):
             if object_key.endswith("/"):
                 continue
 
-            task = process_s3_object(s3_client, bucket_name, object_key)
+            task = process_s3_object(bucket_name, object_key)
             tasks.append(task)
 
     # Process files in batches to avoid overwhelming the system
