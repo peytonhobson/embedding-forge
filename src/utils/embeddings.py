@@ -1,7 +1,7 @@
 from typing import List
 from dotenv import load_dotenv
-from clients.openai_embeddings import openai_embeddings_client
-from clients.pinecone_client import pinecone_index
+from src.clients.openai_embeddings import openai_embeddings_client
+from src.clients.pinecone_client import pinecone_index
 
 load_dotenv()
 
