@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name="embedding-forge",
@@ -15,4 +15,5 @@ setup(
         "pymupdf>=1.25.0",
     ],
     python_requires=">=3.8",
+    packages=find_packages(),
 )
