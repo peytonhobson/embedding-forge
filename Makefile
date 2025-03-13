@@ -21,6 +21,9 @@ test:
 run: 
 	python main.py
 
+embed-bucket: 
+	python -m src/scripts/generate_bucket_embeddings.py
+
 clean:
 	find . -type d -name "__pycache__" -exec rm -rf {} +
 	find . -type f -name "*.pyc" -delete
